@@ -182,6 +182,11 @@ markdown    : kramdown
 highlighter : rouge
 permalink   : date
 
+include:
+  - assets
+  - images
+
+
 exclude:
   - CHANGELOG.md
   - HOW_TO_RELEASE.md
