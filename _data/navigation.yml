@@ -14,7 +14,7 @@ header:
       en      : &EN       Documentation
       # @end locale config
     url: /documentation.html
-   - titles:
+  - titles:
       # @start locale config
       en      : &EN       Methodology
       # @end locale config
