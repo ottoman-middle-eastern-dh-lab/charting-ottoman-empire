@@ -19,17 +19,17 @@ header:
       en      : &EN       Methodology
       # @end locale config
     url: /methodology.html
-   - titles:
+  - titles:
       # @start locale config
       en      : &EN       News
       # @end locale config
     url: /news.html
-   - titles:
+  - titles:
       # @start locale config
       en      : &EN       Sources
       # @end locale config
     url: /sources.html
-   - titles:
+  - titles:
       # @start locale config
       en      : &EN       Project History
       # @end locale config
