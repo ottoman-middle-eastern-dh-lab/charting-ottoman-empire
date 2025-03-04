@@ -1,8 +1,8 @@
-// Header Styling
+// Ensure the Header and Stanford Band are Full Width
 .header {
   background: $header-background;
   width: 100%;
-  max-width: 2000px; // Ensure full width
+  max-width: 100vw; // Ensures it takes the full viewport width
   margin: 0 auto;
   padding: 0 20px;
 
@@ -27,18 +27,18 @@
 #stanford-band {
   background-color: #8C1515; // Cardinal Red
   height: 30px;
-  width: 100vw; // Ensures full viewport width
-  min-width: 100%;
+  width: 100%; // Matches the full width of the header
   display: flex;
   align-items: center;
-  padding-left: var(--padding-left-mobile); // Adjusts left padding dynamically
+  justify-content: flex-start; // Aligns text to the left
+  padding-left: 20px; // Adjust as needed for spacing from the left edge
 }
 
+// Stanford Band Link Styling
 #stanford-band a {
   color: white;
   text-decoration: none;
-  font-family: 'Georgia', serif; // Or the Stanford font
+  font-family: 'Georgia', serif; // Replace with Stanford font if needed
   font-size: 16px;
   font-weight: 600;
-  margin-left: 20px; // Ensures text is positioned away from the left edge
 }
