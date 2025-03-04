@@ -26,11 +26,6 @@ header:
     url: /news.html
   - titles:
       # @start locale config
-      en      : &EN       Sources
-      # @end locale config
-    url: /sources.html
-  - titles:
-      # @start locale config
       en      : &EN       Project History
       # @end locale config
     url: /projecthistory.html
