@@ -1,21 +1,32 @@
 .header {
   background: $header-background;
+  width: 100%;
+  max-width: 2000px; // Expanded width
+  margin: 0 auto; // Centers the header
+  padding: 0 20px; // Adds some padding on the sides
+
   a {
     font-weight: map-get($base, font-weight);
     text-decoration: none !important;
     @include link-colors($header-text-color, $main-color-1);
   }
+
   .main {
     @include flexbox();
+    justify-content: space-between; // Ensures proper spacing
+    width: 100%;
+    
     @include media-breakpoint-down(md) {
       @include flex-direction(column);
     }
   }
 }
 
+// Dark and Light Theme Variations
 .header--dark {
   @extend .text--dark;
   background: rgba(#000, .15);
+
   .navigation__item--active {
     &::after {
       @include split-line(bottom, 4px, $text-color-theme-dark);
@@ -26,6 +37,7 @@
 .header--light {
   @extend .text--light;
   background: rgba(#fff, .15);
+
   .navigation__item--active {
     &::after {
       @include split-line(bottom, 4px, $text-color-theme-light);
@@ -33,72 +45,92 @@
   }
 }
 
+// Header Title & Branding
 .header__title {
   @include menu(3, 0);
   @include align-items(center);
   @include flex-wrap(nowrap);
-  @include flex(1);
+  @include flex(2); // Increases space for title
   height: map-get($layout, header-height);
   margin-right: map-get($spacers, 3);
   white-space: nowrap;
+
   @include media-breakpoint-down(md) {
     height: auto;
     margin-right: 0;
   }
+
   & > .header__brand {
     @include flex(1);
+    
     @include media-breakpoint-down(md) {
       height: map-get($layout, header-height-sm);
     }
   }
+
   & > .search-button {
     display: none;
     margin-left: map-get($spacers, 2);
+
     @include media-breakpoint-down(md) {
       @include flexbox();
     }
   }
 }
 
+// Logo & Branding
 .header__brand {
   @include flexbox();
   @include align-items(center);
+
   & > svg {
     width: map-get($base, font-size-h4) * 1.6;
     height: map-get($base, font-size-h4) * 1.6;
     margin-right: map-get($spacers, 3);
     vertical-align: middle;
+
     @include media-breakpoint-down(md) {
       width: map-get($base, font-size-h4) * 1.2;
       height: map-get($base, font-size-h4) * 1.2;
     }
   }
+
   & > a {
     display: inline-block;
     font-size: map-get($base, font-size-h4);
+
     @include media-breakpoint-down(md) {
       font-size: map-get($base, font-size-h4-small);
     }
   }
 }
 
+// Navigation Styling
 .navigation {
   @include overflow(auto, "x");
+  flex-grow: 1; // Allows navigation to take up more space
+  width: 100%;
+  max-width: 2000px;
+  
   & > ul {
-    width: 100%; // Ensures it takes full width
-    max-width: 2000px; // Adjust as needed
-    margin: 0 auto; // Center the navigation
+    width: 100%;
+    max-width: 2000px; // Ensures it takes full width
+    margin: 0 auto;
     height: map-get($layout, header-height);
     padding-bottom: 0;
+    
     @include media-breakpoint-down(md) {
       padding-bottom: 4px;
       margin: -4px 0 0 0;
     }
+
     @include menu(3, 2, nowrap);
     @include align-items(center);
+
     @include media-breakpoint-down(md) {
       height: auto;
     }
+
     .search-button {
       @include media-breakpoint-down(md) {
         display: none;
@@ -107,6 +139,7 @@
   }
 }
 
+// Individual Navigation Items
 .navigation__item {
   &::after {
     display: block;
@@ -115,10 +148,13 @@
     @include split-line(bottom, 4px, transparent);
   }
 }
+
+// Active Navigation Item Styling
 .navigation__item--active {
   a {
     @include link-colors($main-color-1, $main-color-1);
   }
+
   &::after {
     @include split-line(bottom, 4px, $main-color-1);
   }
