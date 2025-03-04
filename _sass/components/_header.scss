@@ -1,9 +1,10 @@
+// Header Styling
 .header {
   background: $header-background;
   width: 100%;
   max-width: 2000px; // Expanded width
-  margin: 0 auto; // Centers the header
-  padding: 0 20px; // Adds some padding on the sides
+  margin: 0 auto;
+  padding: 0 20px;
 
   a {
     font-weight: map-get($base, font-weight);
@@ -13,7 +14,7 @@
 
   .main {
     @include flexbox();
-    justify-content: space-between; // Ensures proper spacing
+    justify-content: space-between;
     width: 100%;
     
     @include media-breakpoint-down(md) {
@@ -22,7 +23,26 @@
   }
 }
 
-// Dark and Light Theme Variations
+// Stanford Band (Top Red Bar)
+#stanford-band {
+  background-color: #8C1515; // Cardinal Red
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Georgia', serif; // Replace with Stanford font if available
+  font-size: 16px;
+  font-weight: 600;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+// Dark & Light Theme Adjustments
 .header--dark {
   @extend .text--dark;
   background: rgba(#000, .15);
@@ -50,7 +70,7 @@
   @include menu(3, 0);
   @include align-items(center);
   @include flex-wrap(nowrap);
-  @include flex(2); // Increases space for title
+  @include flex(2);
   height: map-get($layout, header-height);
   margin-right: map-get($spacers, 3);
   white-space: nowrap;
@@ -78,7 +98,7 @@
   }
 }
 
-// Logo & Branding
+// Branding & Logo
 .header__brand {
   @include flexbox();
   @include align-items(center);
@@ -105,16 +125,16 @@
   }
 }
 
-// Navigation Styling
+// Navigation
 .navigation {
   @include overflow(auto, "x");
-  flex-grow: 1; // Allows navigation to take up more space
+  flex-grow: 1;
   width: 100%;
   max-width: 2000px;
   
   & > ul {
     width: 100%;
-    max-width: 2000px; // Ensures it takes full width
+    max-width: 2000px;
     margin: 0 auto;
     height: map-get($layout, header-height);
     padding-bottom: 0;
@@ -139,7 +159,7 @@
   }
 }
 
-// Individual Navigation Items
+// Navigation Items
 .navigation__item {
   &::after {
     display: block;
