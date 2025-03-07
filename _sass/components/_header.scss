@@ -16,7 +16,7 @@
     @include flexbox();
     justify-content: space-between;
     width: 100%;
-    
+
     @include media-breakpoint-down(md) {
       @include flex-direction(column);
     }
@@ -114,36 +114,35 @@
   max-width: 2000px;
 
   & > ul {
+    display: flex;
+    justify-content: center;
     width: 100%;
     max-width: 2000px;
     margin: 0 auto;
+    padding: 0;
+    list-style: none;
     height: map-get($layout, header-height);
-    padding-bottom: 0;
 
     @include media-breakpoint-down(md) {
+      flex-direction: column;
+      align-items: start;
+      height: auto;
       padding-bottom: 4px;
       margin: -4px 0 0 0;
-    }
-
-    @include menu(3, 2, nowrap);
-    @include align-items(center);
-
-    @include media-breakpoint-down(md) {
-      height: auto;
     }
   }
 }
 
 // Individual Navigation Items
 .navigation__item {
-  position: relative; // Needed for dropdown
+  position: relative; // Needed for dropdown positioning
   padding: 10px 15px;
 
   a {
     display: block;
     text-decoration: none;
-    color: $header-text-color;
     font-weight: bold;
+    color: $header-text-color;
     padding: 10px 15px;
 
     &:hover {
@@ -153,8 +152,8 @@
 
   &::after {
     display: block;
-    margin-bottom: -4px;
     content: "";
+    margin-bottom: -4px;
     @include split-line(bottom, 4px, transparent);
   }
 
@@ -170,6 +169,7 @@
     z-index: 100;
     min-width: 200px;
     padding: 10px 0;
+    list-style: none;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
@@ -192,7 +192,7 @@
     }
   }
 
-  // Show dropdown on hover (desktop)
+  // Show dropdown on hover (Desktop)
   &:hover > .navigation__dropdown {
     display: block;
     opacity: 1;
@@ -211,33 +211,23 @@
   }
 }
 
-// Mobile Dropdown Support
+// Mobile Dropdown Support (Click-based)
 @include media-breakpoint-down(md) {
-  .navigation {
-    position: relative;
+  .navigation__item {
+    width: 100%;
 
-    & > ul {
-      display: flex;
-      flex-direction: column;
-      align-items: start;
+    .navigation__dropdown {
+      position: relative;
+      width: 100%;
+      box-shadow: none;
+      border-radius: 0;
+      display: none;
+      opacity: 1;
+      visibility: visible;
     }
 
-    .navigation__item {
-      width: 100%;
-
-      .navigation__dropdown {
-        position: relative;
-        width: 100%;
-        box-shadow: none;
-        border-radius: 0;
-        display: none;
-        opacity: 1;
-        visibility: visible;
-      }
-
-      &.open > .navigation__dropdown {
-        display: block;
-      }
+    &.open > .navigation__dropdown {
+      display: block;
     }
   }
 }
