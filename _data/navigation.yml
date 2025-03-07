@@ -9,7 +9,7 @@ header:
       en      : &EN       Bibliography
       # @end locale config
     url: /bibliography.html
-    submenu: 
+    children: 
       - title: sources
         url: /sources.html
       - title: material
