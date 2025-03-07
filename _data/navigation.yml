@@ -12,6 +12,8 @@ header:
     submenu: 
       - title: sources
         url: /sources.html
+      - title: material
+        url: /material.html
   - titles:
       # @start locale config
       en      : &EN       Documentation
