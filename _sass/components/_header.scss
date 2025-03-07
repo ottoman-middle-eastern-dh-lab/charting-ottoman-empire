@@ -1,9 +1,10 @@
+// Header Styling
 .header {
   background: $header-background;
   width: 100%;
   max-width: 2000px; // Expanded width
   margin: 0 auto; // Centers the header
-  padding: 0 20px; // Adds some padding on the sides
+  padding: 0 20px; // Adds padding on the sides
 
   a {
     font-weight: map-get($base, font-weight);
@@ -13,7 +14,7 @@
 
   .main {
     @include flexbox();
-    justify-content: space-between; // Ensures proper spacing
+    justify-content: space-between;
     width: 100%;
     
     @include media-breakpoint-down(md) {
@@ -25,7 +26,7 @@
 // Dark and Light Theme Variations
 .header--dark {
   @extend .text--dark;
-  background: rgba(#000, .15);
+  background: rgba(#000, 0.15);
 
   .navigation__item--active {
     &::after {
@@ -36,7 +37,7 @@
 
 .header--light {
   @extend .text--light;
-  background: rgba(#fff, .15);
+  background: rgba(#fff, 0.15);
 
   .navigation__item--active {
     &::after {
@@ -45,12 +46,12 @@
   }
 }
 
-// Header Title & Branding
+// Header Branding
 .header__title {
   @include menu(3, 0);
   @include align-items(center);
   @include flex-wrap(nowrap);
-  @include flex(2); // Increases space for title
+  @include flex(2);
   height: map-get($layout, header-height);
   margin-right: map-get($spacers, 3);
   white-space: nowrap;
@@ -60,15 +61,15 @@
     margin-right: 0;
   }
 
-  & > .header__brand {
+  .header__brand {
     @include flex(1);
-    
+
     @include media-breakpoint-down(md) {
       height: map-get($layout, header-height-sm);
     }
   }
 
-  & > .search-button {
+  .search-button {
     display: none;
     margin-left: map-get($spacers, 2);
 
@@ -108,17 +109,17 @@
 // Navigation Styling
 .navigation {
   @include overflow(auto, "x");
-  flex-grow: 1; // Allows navigation to take up more space
+  flex-grow: 1;
   width: 100%;
   max-width: 2000px;
-  
+
   & > ul {
     width: 100%;
-    max-width: 2000px; // Ensures it takes full width
+    max-width: 2000px;
     margin: 0 auto;
     height: map-get($layout, header-height);
     padding-bottom: 0;
-    
+
     @include media-breakpoint-down(md) {
       padding-bottom: 4px;
       margin: -4px 0 0 0;
@@ -130,32 +131,114 @@
     @include media-breakpoint-down(md) {
       height: auto;
     }
-
-    .search-button {
-      @include media-breakpoint-down(md) {
-        display: none;
-      }
-    }
   }
 }
 
 // Individual Navigation Items
 .navigation__item {
+  position: relative; // Needed for dropdown
+  padding: 10px 15px;
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: $header-text-color;
+    font-weight: bold;
+    padding: 10px 15px;
+
+    &:hover {
+      color: $main-color-1;
+    }
+  }
+
   &::after {
     display: block;
     margin-bottom: -4px;
     content: "";
     @include split-line(bottom, 4px, transparent);
   }
-}
 
-// Active Navigation Item Styling
-.navigation__item--active {
-  a {
-    @include link-colors($main-color-1, $main-color-1);
+  // Dropdown Menu Styling
+  .navigation__dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(#fff, 0.95);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 100;
+    min-width: 200px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+    li {
+      padding: 10px 15px;
+      white-space: nowrap;
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: $text-color-theme-dark;
+        font-weight: normal;
+
+        &:hover {
+          background: $main-color-1;
+          color: white;
+        }
+      }
+    }
   }
 
-  &::after {
-    @include split-line(bottom, 4px, $main-color-1);
+  // Show dropdown on hover (desktop)
+  &:hover > .navigation__dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // Active Navigation Item Styling
+  &.navigation__item--active {
+    a {
+      @include link-colors($main-color-1, $main-color-1);
+    }
+
+    &::after {
+      @include split-line(bottom, 4px, $main-color-1);
+    }
   }
 }
+
+// Mobile Dropdown Support
+@include media-breakpoint-down(md) {
+  .navigation {
+    position: relative;
+
+    & > ul {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .navigation__item {
+      width: 100%;
+
+      .navigation__dropdown {
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &.open > .navigation__dropdown {
+        display: block;
+      }
+    }
+  }
+}
+
