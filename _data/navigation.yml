@@ -9,6 +9,9 @@ header:
       en      : &EN       Bibliography
       # @end locale config
     url: /bibliography.html
+    submenu: 
+      - title: sources
+        url: /sources.html
   - titles:
       # @start locale config
       en      : &EN       Documentation
