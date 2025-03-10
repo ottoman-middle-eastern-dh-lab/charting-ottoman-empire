@@ -1,13 +1,10 @@
-/* Header Styles */
 .header {
   background: $header-background;
-  
   a {
     font-weight: map-get($base, font-weight);
     text-decoration: none !important;
     @include link-colors($header-text-color, $main-color-1);
   }
-  
   .main {
     @include flexbox();
     @include media-breakpoint-down(md) {
@@ -16,11 +13,9 @@
   }
 }
 
-/* Dark and Light Mode Headers */
 .header--dark {
   @extend .text--dark;
-  background: rgba(#000, 0.15);
-  
+  background: rgba(#000, .15);
   .navigation__item--active {
     &::after {
       @include split-line(bottom, 4px, $text-color-theme-dark);
@@ -30,8 +25,7 @@
 
 .header--light {
   @extend .text--light;
-  background: rgba(#fff, 0.15);
-  
+  background: rgba(#fff, .15);
   .navigation__item--active {
     &::after {
       @include split-line(bottom, 4px, $text-color-theme-light);
@@ -39,7 +33,6 @@
   }
 }
 
-/* Header Title */
 .header__title {
   @include menu(3, 0);
   @include align-items(center);
@@ -48,80 +41,62 @@
   height: map-get($layout, header-height);
   margin-right: map-get($spacers, 3);
   white-space: nowrap;
-  
   @include media-breakpoint-down(md) {
     height: auto;
     margin-right: 0;
   }
-  
   & > .header__brand {
     @include flex(1);
-    
     @include media-breakpoint-down(md) {
       height: map-get($layout, header-height-sm);
     }
   }
-  
   & > .search-button {
     display: none;
     margin-left: map-get($spacers, 2);
-    
     @include media-breakpoint-down(md) {
       @include flexbox();
     }
   }
 }
 
-/* Brand Logo */
 .header__brand {
   @include flexbox();
   @include align-items(center);
-  
   & > svg {
     width: map-get($base, font-size-h4) * 1.6;
     height: map-get($base, font-size-h4) * 1.6;
     margin-right: map-get($spacers, 3);
     vertical-align: middle;
-    
     @include media-breakpoint-down(md) {
       width: map-get($base, font-size-h4) * 1.2;
       height: map-get($base, font-size-h4) * 1.2;
     }
   }
-  
   & > a {
     display: inline-block;
     font-size: map-get($base, font-size-h4);
-    
     @include media-breakpoint-down(md) {
       font-size: map-get($base, font-size-h4-small);
     }
   }
 }
 
-/* Navigation */
 .navigation {
   @include overflow(auto, "x");
-  
   & > ul {
-    width: 100%;
-    max-width: 2000px;
-    margin: 0 auto;
     height: map-get($layout, header-height);
     padding-bottom: 0;
-    
+    margin: 0;
     @include media-breakpoint-down(md) {
       padding-bottom: 4px;
       margin: -4px 0 0 0;
     }
-    
     @include menu(3, 2, nowrap);
     @include align-items(center);
-    
     @include media-breakpoint-down(md) {
       height: auto;
     }
-    
     .search-button {
       @include media-breakpoint-down(md) {
         display: none;
@@ -129,12 +104,23 @@
     }
   }
 }
+.submenu {
+  display: none; 
+  position: absolute;
+  background-color: $header-background;
+  list-style: none;
+  padding: 0;
 
-/* Navigation Items */
+  li {
+    padding: 0.5rem 1rem; 
+  }
+}
+
+.submenu:hover {
+  display: block; 
+}
+
 .navigation__item {
-  position: relative;
-  display: inline-block;
-  
   &::after {
     display: block;
     margin-bottom: -4px;
@@ -142,73 +128,11 @@
     @include split-line(bottom, 4px, transparent);
   }
 }
-
-/* Active Navigation Item */
 .navigation__item--active {
   a {
     @include link-colors($main-color-1, $main-color-1);
   }
-  
   &::after {
     @include split-line(bottom, 4px, $main-color-1);
   }
 }
-
-/* Dropdown Button */
-.dropbtn {
-  background-color: transparent;
-  color: inherit;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Dropdown Container */
-.dropdown {
-  position: relative;
-  display: inline-block;
-  
-  /* Adjust dropdown inside the navigation */
-  .dropbtn {
-    text-decoration: none !important;
-    font-weight: map-get($base, font-weight);
-    @include link-colors($header-text-color, $main-color-1);
-  }
-}
-
-/* Dropdown Content */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  top: 100%;
-  left: 0;
-
-  a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-    @include link-colors($header-text-color, $main-color-1);
-  }
-
-  a:hover {
-    background-color: #ddd;
-  }
-}
-
-/* Show Dropdown on Hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Change background color when hovered */
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
-
