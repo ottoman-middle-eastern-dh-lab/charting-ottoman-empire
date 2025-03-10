@@ -9,11 +9,6 @@ header:
       en      : &EN       Bibliography
       # @end locale config
     url: /bibliography.html
-    children: 
-      - title: sources
-        url: /sources.html
-      - title: material
-        url: /material.html
   - titles:
       # @start locale config
       en      : &EN       Documentation
