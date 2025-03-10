@@ -9,6 +9,7 @@
 
   .main {
     @include flexbox();
+    position: relative; /* Ensures the header is properly layered */
 
     @include media-breakpoint-down(md) {
       @include flex-direction(column);
@@ -103,6 +104,7 @@
 /* Navigation */
 .navigation {
   @include overflow(auto, "x");
+  position: relative; /* Ensures menu is properly layered */
 
   & > ul {
     height: map-get($layout, header-height);
@@ -137,7 +139,7 @@
   margin: 0;
   min-width: 200px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 9999; /* Higher z-index to ensure visibility */
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
 
@@ -163,6 +165,7 @@
 /* Ensure submenu appears when hovering over parent */
 .navigation__item {
   position: relative;
+  z-index: 9998; /* Ensures the menu is above other content */
 
   /* Show submenu on hover */
   &:hover .submenu {
@@ -187,6 +190,12 @@
   &::after {
     @include split-line(bottom, 4px, $main-color-1);
   }
+}
+
+/* Fix Main Content Blocking Dropdown */
+.main {
+  position: relative;
+  z-index: 1; /* Lower than the dropdown */
 }
 
 /* Mobile Dropdown Styles */
