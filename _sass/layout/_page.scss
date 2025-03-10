@@ -159,3 +159,45 @@ html,
   a:hover {
     background-color: #ddd;
   }
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Ensure the header is positioned correctly */
+.header {
+  position: relative;
+  z-index: 999; /* Keeps it above the page but below dropdown */
+}
+
+/* Ensure layout with sidebar doesn't clip dropdown */
+.layout--page--sidebar {
+  .page__main {
+    overflow: visible !important;
+  }
+}
+
+/* Responsive Hero Section */
+.hero--light {
+  .article__info {
+    color: $text-color-theme-light;
+  }
+}
+.hero--dark {
+  .article__info {
+    color: $text-color-theme-dark;
+  }
+}
+
+/* Immersive Mode */
+.page__main--immersive {
+  .page__header {
+    position: absolute;
+    width: 100%;
+  }
+  .hero__content {
+    padding-top: map-get($layout, header-height);
+  }
+}
