@@ -11,9 +11,10 @@ html,
     .page__grid {
       height: 100%;
     }
+
     @include media-breakpoint-down(lg) {
       .page__main {
-        @include overflow(unset);
+        @include overflow(visible); /* Fix dropdown being hidden */
       }
     }
   }
@@ -22,8 +23,12 @@ html,
 .page__main {
   height: 100%;
   color: $text-color;
+  position: relative; /* Ensures proper layering */
+  z-index: 1; /* Keeps content below dropdown */
+
   .col-aside {
     display: none;
+
     & > aside {
       position: absolute;
       width: map-get($layout, aside-width);
@@ -44,10 +49,13 @@ html,
   @include flex(1);
   width: 100%;
   margin: 0 auto;
+  z-index: 1; /* Keeps content below dropdown */
+
   @media print {
     padding-bottom: 0;
   }
 }
+
 .hide-footer {
   .page__content {
     padding-bottom: 0;
@@ -82,21 +90,25 @@ html,
   @include split-line(right);
   @include transition(transform map-get($animation, duration));
   @include overflow(auto);
+
   .sidebar-toc {
     padding: map-get($spacers, 3) map-get($spacers, 3) map-get($spacers, 4) map-get($spacers, 4);
   }
 }
+
 .sidebar-button {
-  @include clickable($text-color-d, rgba($main-color-3, .75));
+  @include clickable($text-color-d, rgba($main-color-3, 0.75));
 }
 
 .page__mask {
   @include modal(map-get($z-indexes, mask));
   cursor: pointer;
 }
+
 .layout--page--sidebar {
   .page__main {
     @include overflow(auto);
+
     @media print {
       @include overflow(unset);
     }
@@ -108,12 +120,14 @@ html,
     position: relative;
     display: block;
     width: map-get($layout, aside-width);
+
     & > aside {
       &.fixed {
         position: fixed;
         -webkit-font-smoothing: subpixel-antialiased;
       }
     }
+
     @include media-breakpoint-down(lg) {
       display: none;
     }
@@ -134,13 +148,22 @@ html,
     .page__actions {
       visibility: hidden;
     }
+
     .page__sidebar {
       @include transform(translate(0));
     }
+
     .page__mask {
       @include modal--show();
     }
   }
+}
+
+/* Ensures the dropdown menu is visible above all content */
+.page__main,
+.layout--page {
+  position: relative;
+  z-index: 1;
 }
 
 .hero--light {
@@ -148,6 +171,7 @@ html,
     color: $text-color-theme-light;
   }
 }
+
 .hero--dark {
   .article__info {
     color: $text-color-theme-dark;
@@ -159,6 +183,7 @@ html,
     position: absolute;
     width: 100%;
   }
+
   .hero__content {
     padding-top: map-get($layout, header-height);
   }
