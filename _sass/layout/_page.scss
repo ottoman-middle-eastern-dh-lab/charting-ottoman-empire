@@ -1,3 +1,4 @@
+/* Ensure full-page height */
 body,
 html,
 .root,
@@ -5,6 +6,7 @@ html,
   height: 100%;
 }
 
+/* Layout Handling */
 .layout--page {
   &.layout--page--sidebar {
     .page__viewport,
@@ -19,9 +21,14 @@ html,
   }
 }
 
+/* Main Content */
 .page__main {
   height: 100%;
   color: $text-color;
+  position: relative; /* Ensure dropdown can overlay */
+  z-index: 1; /* Keeps it below dropdown */
+  overflow: visible !important; /* Prevents clipping */
+
   .col-aside {
     display: none;
     & > aside {
@@ -32,6 +39,7 @@ html,
   }
 }
 
+/* Main Content Wrapper */
 .page__main-inner {
   position: relative;
   @include flexbox();
@@ -40,6 +48,7 @@ html,
   background-color: $background-color;
 }
 
+/* Page Content */
 .page__content {
   @include flex(1);
   width: 100%;
@@ -54,26 +63,14 @@ html,
   }
 }
 
+/* Comments Section */
 .page__comments {
   margin: map-get($spacers, 4) 0;
 }
 
-.page__aside {
-  .toc-aside {
-    padding: map-get($spacers, 5) 0 map-get($spacers, 3) map-get($spacers, 5);
-  }
-}
-
-.page__actions {
-  position: fixed;
-  bottom: map-get($spacers, 5);
-  left: map-get($spacers, 3);
-  z-index: map-get($z-indexes, actions);
-  display: none;
-}
-
+/* Sidebar */
 .page__sidebar {
-  z-index: map-get($z-indexes, sidebar);
+  z-index: 2; /* Ensure it doesn’t block dropdowns */
   display: block;
   width: 80%;
   max-width: map-get($layout, sidebar-width);
@@ -81,45 +78,25 @@ html,
   background-color: $background-color;
   @include split-line(right);
   @include transition(transform map-get($animation, duration));
-  @include overflow(auto);
+  @include overflow(visible); /* Prevents clipping of dropdowns */
+
   .sidebar-toc {
     padding: map-get($spacers, 3) map-get($spacers, 3) map-get($spacers, 4) map-get($spacers, 4);
   }
 }
+
+/* Sidebar Button */
 .sidebar-button {
   @include clickable($text-color-d, rgba($main-color-3, .75));
 }
 
+/* Sidebar Mask */
 .page__mask {
   @include modal(map-get($z-indexes, mask));
   cursor: pointer;
 }
-.layout--page--sidebar {
-  .page__main {
-    @include overflow(auto);
-    @media print {
-      @include overflow(unset);
-    }
-  }
-}
 
-.has-aside {
-  .col-aside {
-    position: relative;
-    display: block;
-    width: map-get($layout, aside-width);
-    & > aside {
-      &.fixed {
-        position: fixed;
-        -webkit-font-smoothing: subpixel-antialiased;
-      }
-    }
-    @include media-breakpoint-down(lg) {
-      display: none;
-    }
-  }
-}
-
+/* Sidebar Handling for Smaller Screens */
 @include media-breakpoint-down(lg) {
   .page__sidebar {
     position: fixed;
@@ -143,23 +120,42 @@ html,
   }
 }
 
-.hero--light {
-  .article__info {
-    color: $text-color-theme-light;
-  }
-}
-.hero--dark {
-  .article__info {
-    color: $text-color-theme-dark;
-  }
+/* Dropdown Menu Styling */
+.dropbtn {
+  background-color: transparent;
+  color: inherit;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
-.page__main--immersive {
-  .page__header {
-    position: absolute;
-    width: 100%;
-  }
-  .hero__content {
-    padding-top: map-get($layout, header-height);
-  }
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10000; /* Ensures dropdown is always on top */
+  top: 100%;
+  left: 0;
+  padding: 8px 0;
+
+  a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+  }
+
+  a:hover {
+    background-color: #ddd;
+  }
