@@ -33,30 +33,25 @@
             {%- assign _nav_url = __return -%}
             {%- include snippets/get-nav-url.html path=page.url -%}
             {%- assign _page_url = __return -%}
-            {%- include snippets/get-string-from-locale-config.html locale=_item.titles -%}
+
+            {%- assign _title = _item.titles[site.locale] | default: _item.titles.en -%}
 
             {%- if _item.submenu -%}
               <li class="navigation__item dropdown">
-                <a href="{{ _nav_url }}">
-                  {%- if _item.title -%}{{ _item.title }}{%- else -%} Menu Item {%- endif -%} ▼
-                </a>
+                <a href="{{ _nav_url }}">{{ _title }} ▼</a>
                 <ul class="submenu">
                   {%- for _subitem in _item.submenu -%}
                     {%- include snippets/get-nav-url.html path=_subitem.url -%}
                     {%- assign _sub_nav_url = __return -%}
                     <li class="submenu-item{% if _sub_nav_url == _page_url or (page.nav_key and _subitem.key and page.nav_key == _subitem.key) %} navigation__item--active{% endif %}">
-                      <a href="{{ _sub_nav_url }}">
-                        {%- if _subitem.title -%}{{ _subitem.title }}{%- else -%} Submenu Item {%- endif -%}
-                      </a>
+                      <a href="{{ _sub_nav_url }}">{{ _subitem.title }}</a>
                     </li>
                   {%- endfor -%}
                 </ul>
               </li>
             {%- else -%}
               <li class="navigation__item{% if _nav_url == _page_url or (page.nav_key and _item.key and page.nav_key == _item.key) %} navigation__item--active{% endif %}">
-                <a href="{{ _nav_url }}">
-                  {%- if _item.title -%}{{ _item.title }}{%- else -%} Menu Item {%- endif -%}
-                </a>
+                <a href="{{ _nav_url }}">{{ _title }}</a>
               </li>
             {%- endif -%}
           {%- endfor -%}
