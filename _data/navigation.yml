@@ -1,26 +1,29 @@
 header:
+ - titles:
+      # @start locale config
+      en      : &EN       Project History 
+      # @end locale config
+    url: /projecthistory.html
   - titles:
       # @start locale config
-      en      : &EN       About
+      en      : &EN       Team 
       # @end locale config
-    url: /about.html
-    children: 
-      - title: Project History
-        url: /projecthistory.html
-      - title: Team
-        url: /team.html
+    url: /team.html
   - titles:
       # @start locale config
-      en      : &EN       Sources and Methods
+      en      : &EN       References 
       # @end locale config
-    url: /sourcesandmethods.html
-    children: 
-      - title: Sources
-        url: /sources.html
-      - title: References
-        url: /references.html
-      - title: Methodology
-        url: /methodology.html
+    url: /references.html
+  - titles:
+      # @start locale config
+      en      : &EN       Sources 
+      # @end locale config
+    url: /sources.html
+  - titles:
+      # @start locale config
+      en      : &EN       Methods 
+      # @end locale config
+    url: /methods.html
   - titles:
       # @start locale config
       en      : &EN       Publications
