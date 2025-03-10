@@ -173,11 +173,20 @@
 }
 
 /* Dropdown caret icon */
+/* Dropdown caret icon - Ensures arrow stays inline */
+.navigation__item.dropdown > a {
+  display: inline-flex;  /* Keeps text and arrow inline */
+  align-items: center;
+  gap: 5px;  /* Adds spacing between text and arrow */
+}
+
+/* Ensure the arrow appears next to the title */
 .navigation__item.dropdown > a::after {
   content: " ▼";
   font-size: 0.8rem;
   margin-left: 5px;
   vertical-align: middle;
+  display: inline-block; /* Ensures it stays in line */
 }
 
 /* Active Navigation Item */
