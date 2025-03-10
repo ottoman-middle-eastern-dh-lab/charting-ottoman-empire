@@ -1,36 +1,33 @@
 header:
   - titles:
       # @start locale config
-      en      : &EN       Team
+      en      : &EN       About
       # @end locale config
-    url: /team.html
+    url: /about.html
+    children: 
+      - title: Project History
+        url: /projecthistory.html
+      - title: Team
+        url: /team.html
   - titles:
       # @start locale config
-      en      : &EN       Bibliography
+      en      : &EN       Sources and Methods
       # @end locale config
-    url: /bibliography.html
+    url: /sourcesandmethods.html
+    children: 
+      - title: Sources
+        url: /sources.html
+      - title: References
+        url: /references.html
+      - title: Methodology
+        url: /methodology.html
   - titles:
       # @start locale config
-      en      : &EN       Documentation
+      en      : &EN       Publications
       # @end locale config
-    url: /documentation.html
-    submenu: 
-      - title: people
-        url: /people.html
-      - title: craze
-        url: /craze.html
-  - titles:
-      # @start locale config
-      en      : &EN       Methodology
-      # @end locale config
-    url: /methodology.html
+    url: /publications.html
   - titles:
       # @start locale config
       en      : &EN       News
       # @end locale config
     url: /news.html
-  - titles:
-      # @start locale config
-      en      : &EN       Project History
-      # @end locale config
-    url: /projecthistory.html
