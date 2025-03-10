@@ -6,6 +6,7 @@
     text-decoration: none !important;
     @include link-colors($header-text-color, $main-color-1);
   }
+
   .main {
     @include flexbox();
 
@@ -18,7 +19,7 @@
 /* Dark Theme Styles */
 .header--dark {
   @extend .text--dark;
-  background: rgba(#000, .15);
+  background: rgba(#000, 0.15);
 
   .navigation__item--active {
     &::after {
@@ -30,7 +31,7 @@
 /* Light Theme Styles */
 .header--light {
   @extend .text--light;
-  background: rgba(#fff, .15);
+  background: rgba(#fff, 0.15);
 
   .navigation__item--active {
     &::after {
@@ -124,20 +125,21 @@
   }
 }
 
-/* Submenu (Dropdown) Styles */
+/* Dropdown Menu (Submenu) */
 .submenu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: $header-background;
+  background-color: darken($header-background, 5%);
   list-style: none;
   padding: 0;
   margin: 0;
-  min-width: 180px;
+  min-width: 200px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   border-radius: 4px;
+  transition: all 0.2s ease-in-out;
 
   li {
     padding: 0.5rem 1rem;
@@ -149,6 +151,7 @@
     padding: 10px;
     color: $header-text-color;
     text-decoration: none;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
 
     &:hover {
       background-color: darken($header-background, 10%);
@@ -161,9 +164,20 @@
 .navigation__item {
   position: relative;
 
-  &.dropdown:hover .submenu {
+  /* Show submenu on hover */
+  &:hover .submenu {
     display: block;
+    opacity: 1;
+    visibility: visible;
   }
+}
+
+/* Dropdown caret icon */
+.navigation__item.dropdown > a::after {
+  content: " ▼";
+  font-size: 0.8rem;
+  margin-left: 5px;
+  vertical-align: middle;
 }
 
 /* Active Navigation Item */
@@ -174,5 +188,25 @@
 
   &::after {
     @include split-line(bottom, 4px, $main-color-1);
+  }
+}
+
+/* Mobile Dropdown Styles */
+@media (max-width: 768px) {
+  .submenu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background-color: transparent;
+    transition: none;
+  }
+
+  .navigation__item.dropdown:hover .submenu {
+    display: block;
+  }
+
+  /* Ensures mobile menu opens when clicked */
+  .dropdown > a {
+    cursor: pointer;
   }
 }
