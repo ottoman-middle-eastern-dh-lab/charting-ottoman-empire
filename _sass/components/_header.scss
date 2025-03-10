@@ -1,33 +1,21 @@
-// Header Styling
 .header {
   background: $header-background;
-  width: 100%;
-  max-width: 2000px; // Expanded width
-  margin: 0 auto; // Centers the header
-  padding: 0 20px; // Adds padding on the sides
-
   a {
     font-weight: map-get($base, font-weight);
     text-decoration: none !important;
     @include link-colors($header-text-color, $main-color-1);
   }
-
   .main {
     @include flexbox();
-    justify-content: space-between;
-    width: 100%;
-
     @include media-breakpoint-down(md) {
       @include flex-direction(column);
     }
   }
 }
 
-// Dark and Light Theme Variations
 .header--dark {
   @extend .text--dark;
-  background: rgba(#000, 0.15);
-
+  background: rgba(#000, .15);
   .navigation__item--active {
     &::after {
       @include split-line(bottom, 4px, $text-color-theme-dark);
@@ -37,8 +25,7 @@
 
 .header--light {
   @extend .text--light;
-  background: rgba(#fff, 0.15);
-
+  background: rgba(#fff, .15);
   .navigation__item--active {
     &::after {
       @include split-line(bottom, 4px, $text-color-theme-light);
@@ -46,189 +33,93 @@
   }
 }
 
-// Header Branding
 .header__title {
   @include menu(3, 0);
   @include align-items(center);
   @include flex-wrap(nowrap);
-  @include flex(2);
+  @include flex(1);
   height: map-get($layout, header-height);
   margin-right: map-get($spacers, 3);
   white-space: nowrap;
-
   @include media-breakpoint-down(md) {
     height: auto;
     margin-right: 0;
   }
-
-  .header__brand {
+  & > .header__brand {
     @include flex(1);
-
     @include media-breakpoint-down(md) {
       height: map-get($layout, header-height-sm);
     }
   }
-
-  .search-button {
+  & > .search-button {
     display: none;
     margin-left: map-get($spacers, 2);
-
     @include media-breakpoint-down(md) {
       @include flexbox();
     }
   }
 }
 
-// Logo & Branding
 .header__brand {
   @include flexbox();
   @include align-items(center);
-
   & > svg {
     width: map-get($base, font-size-h4) * 1.6;
     height: map-get($base, font-size-h4) * 1.6;
     margin-right: map-get($spacers, 3);
     vertical-align: middle;
-
     @include media-breakpoint-down(md) {
       width: map-get($base, font-size-h4) * 1.2;
       height: map-get($base, font-size-h4) * 1.2;
     }
   }
-
   & > a {
     display: inline-block;
     font-size: map-get($base, font-size-h4);
-
     @include media-breakpoint-down(md) {
       font-size: map-get($base, font-size-h4-small);
     }
   }
 }
 
-// Navigation Styling
 .navigation {
   @include overflow(auto, "x");
-  flex-grow: 1;
-  width: 100%;
-  max-width: 2000px;
-
   & > ul {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 2000px;
-    margin: 0 auto;
-    padding: 0;
-    list-style: none;
+    width: 100%; // Ensures it takes full width
+    max-width: 2000px; // Adjust as needed
+    margin: 0 auto; // Center the navigation
     height: map-get($layout, header-height);
-
+    padding-bottom: 0;
     @include media-breakpoint-down(md) {
-      flex-direction: column;
-      align-items: start;
-      height: auto;
       padding-bottom: 4px;
       margin: -4px 0 0 0;
     }
-  }
-}
-
-// Individual Navigation Items
-.navigation__item {
-  position: relative; // Needed for dropdown positioning
-  padding: 10px 15px;
-
-  a {
-    display: block;
-    text-decoration: none;
-    font-weight: bold;
-    color: $header-text-color;
-    padding: 10px 15px;
-
-    &:hover {
-      color: $main-color-1;
+    @include menu(3, 2, nowrap);
+    @include align-items(center);
+    @include media-breakpoint-down(md) {
+      height: auto;
     }
-  }
-
-  &::after {
-    display: block;
-    content: "";
-    margin-bottom: -4px;
-    @include split-line(bottom, 4px, transparent);
-  }
-
-  // Dropdown Menu Styling
-  .navigation__dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: rgba(#fff, 0.95);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    z-index: 100;
-    min-width: 200px;
-    padding: 10px 0;
-    list-style: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-
-    li {
-      padding: 10px 15px;
-      white-space: nowrap;
-
-      a {
-        display: block;
-        text-decoration: none;
-        color: $text-color-theme-dark;
-        font-weight: normal;
-
-        &:hover {
-          background: $main-color-1;
-          color: white;
-        }
+    .search-button {
+      @include media-breakpoint-down(md) {
+        display: none;
       }
     }
   }
+}
 
-  // Show dropdown on hover (Desktop)
-  &:hover > .navigation__dropdown {
+.navigation__item {
+  &::after {
     display: block;
-    opacity: 1;
-    visibility: visible;
-  }
-
-  // Active Navigation Item Styling
-  &.navigation__item--active {
-    a {
-      @include link-colors($main-color-1, $main-color-1);
-    }
-
-    &::after {
-      @include split-line(bottom, 4px, $main-color-1);
-    }
+    margin-bottom: -4px;
+    content: "";
+    @include split-line(bottom, 4px, transparent);
   }
 }
-
-// Mobile Dropdown Support (Click-based)
-@include media-breakpoint-down(md) {
-  .navigation__item {
-    width: 100%;
-
-    .navigation__dropdown {
-      position: relative;
-      width: 100%;
-      box-shadow: none;
-      border-radius: 0;
-      display: none;
-      opacity: 1;
-      visibility: visible;
-    }
-
-    &.open > .navigation__dropdown {
-      display: block;
-    }
+.navigation__item--active {
+  a {
+    @include link-colors($main-color-1, $main-color-1);
+  }
+  &::after {
+    @include split-line(bottom, 4px, $main-color-1);
   }
 }
-
