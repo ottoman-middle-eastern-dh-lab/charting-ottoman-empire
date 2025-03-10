@@ -6,7 +6,6 @@
     text-decoration: none !important;
     @include link-colors($header-text-color, $main-color-1);
   }
-
   .main {
     @include flexbox();
 
