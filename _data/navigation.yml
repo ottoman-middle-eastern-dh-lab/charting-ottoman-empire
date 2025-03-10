@@ -14,6 +14,11 @@ header:
       en      : &EN       Documentation
       # @end locale config
     url: /documentation.html
+    submenu: 
+      - title: people
+        url: /people.html
+      - title: craze
+        url: /craze.html
   - titles:
       # @start locale config
       en      : &EN       Methodology
