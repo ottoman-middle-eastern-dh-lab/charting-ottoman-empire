@@ -1,27 +1,21 @@
 .header {
   background: $header-background;
-
   a {
     font-weight: map-get($base, font-weight);
     text-decoration: none !important;
     @include link-colors($header-text-color, $main-color-1);
   }
-
   .main {
     @include flexbox();
-    position: relative; /* Ensures the header is properly layered */
-
     @include media-breakpoint-down(md) {
       @include flex-direction(column);
     }
   }
 }
 
-/* Dark Theme Styles */
 .header--dark {
   @extend .text--dark;
-  background: rgba(#000, 0.15);
-
+  background: rgba(#000, .15);
   .navigation__item--active {
     &::after {
       @include split-line(bottom, 4px, $text-color-theme-dark);
@@ -29,11 +23,9 @@
   }
 }
 
-/* Light Theme Styles */
 .header--light {
   @extend .text--light;
-  background: rgba(#fff, 0.15);
-
+  background: rgba(#fff, .15);
   .navigation__item--active {
     &::after {
       @include split-line(bottom, 4px, $text-color-theme-light);
@@ -41,7 +33,6 @@
   }
 }
 
-/* Header Title */
 .header__title {
   @include menu(3, 0);
   @include align-items(center);
@@ -50,75 +41,62 @@
   height: map-get($layout, header-height);
   margin-right: map-get($spacers, 3);
   white-space: nowrap;
-
   @include media-breakpoint-down(md) {
     height: auto;
     margin-right: 0;
   }
-
   & > .header__brand {
     @include flex(1);
-
     @include media-breakpoint-down(md) {
       height: map-get($layout, header-height-sm);
     }
   }
-
   & > .search-button {
     display: none;
     margin-left: map-get($spacers, 2);
-
     @include media-breakpoint-down(md) {
       @include flexbox();
     }
   }
 }
 
-/* Branding */
 .header__brand {
   @include flexbox();
   @include align-items(center);
-
   & > svg {
     width: map-get($base, font-size-h4) * 1.6;
     height: map-get($base, font-size-h4) * 1.6;
     margin-right: map-get($spacers, 3);
     vertical-align: middle;
-
     @include media-breakpoint-down(md) {
       width: map-get($base, font-size-h4) * 1.2;
       height: map-get($base, font-size-h4) * 1.2;
     }
   }
-
   & > a {
     display: inline-block;
     font-size: map-get($base, font-size-h4);
-
     @include media-breakpoint-down(md) {
       font-size: map-get($base, font-size-h4-small);
     }
   }
 }
 
-/* Navigation */
 .navigation {
   @include overflow(auto, "x");
-  position: relative; /* Ensures menu is properly layered */
-
   & > ul {
     height: map-get($layout, header-height);
     padding-bottom: 0;
     margin: 0;
-    @include menu(3, 2, nowrap);
-    @include align-items(center);
-
     @include media-breakpoint-down(md) {
-      height: auto;
       padding-bottom: 4px;
       margin: -4px 0 0 0;
     }
-
+    @include menu(3, 2, nowrap);
+    @include align-items(center);
+    @include media-breakpoint-down(md) {
+      height: auto;
+    }
     .search-button {
       @include media-breakpoint-down(md) {
         display: none;
@@ -127,93 +105,19 @@
   }
 }
 
-/* Dropdown Menu (Submenu) */
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: darken($header-background, 5%);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  min-width: 200px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 9999; /* Higher z-index to ensure visibility */
-  border-radius: 4px;
-  transition: all 0.2s ease-in-out;
-
-  li {
-    padding: 0.5rem 1rem;
-    white-space: nowrap;
-  }
-
-  a {
-    display: block;
-    padding: 10px;
-    color: $header-text-color;
-    text-decoration: none;
-    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
-
-    &:hover {
-      background-color: darken($header-background, 10%);
-      color: $main-color-1;
-    }
-  }
-}
-
-/* Ensure submenu appears when hovering over parent */
 .navigation__item {
-  position: relative;
-  z-index: 9998; /* Ensures the menu is above other content */
-
-  /* Show submenu on hover */
-  &:hover .submenu {
+  &::after {
     display: block;
-    opacity: 1;
-    visibility: visible;
+    margin-bottom: -4px;
+    content: "";
+    @include split-line(bottom, 4px, transparent);
   }
 }
-
-/* Remove dropdown arrows */
-.navigation__item.dropdown > a::after {
-  content: ""; /* Removes the arrow */
-  display: none; /* Ensures no space is reserved */
-}
-
-/* Active Navigation Item */
 .navigation__item--active {
   a {
     @include link-colors($main-color-1, $main-color-1);
   }
-
   &::after {
     @include split-line(bottom, 4px, $main-color-1);
-  }
-}
-
-/* Fix Main Content Blocking Dropdown */
-.main {
-  position: relative;
-  z-index: 1; /* Lower than the dropdown */
-}
-
-/* Mobile Dropdown Styles */
-@media (max-width: 768px) {
-  .submenu {
-    position: static;
-    display: none;
-    box-shadow: none;
-    background-color: transparent;
-    transition: none;
-  }
-
-  .navigation__item.dropdown:hover .submenu {
-    display: block;
-  }
-
-  /* Ensures mobile menu opens when clicked */
-  .dropdown > a {
-    cursor: pointer;
   }
 }
