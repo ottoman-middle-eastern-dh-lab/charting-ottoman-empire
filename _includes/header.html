@@ -38,7 +38,7 @@
 
             {%- if _item.submenu -%}
               <li class="navigation__item dropdown">
-                <a href="{{ _nav_url }}">{{ _title }} ▼</a>
+                <a href="{{ _nav_url }}">{{ _title }}</a>
                 <ul class="submenu">
                   {%- for _subitem in _item.submenu -%}
                     {%- include snippets/get-nav-url.html path=_subitem.url -%}
