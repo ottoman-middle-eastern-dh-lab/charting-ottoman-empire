@@ -1,15 +1,15 @@
 header:
   - titles:
       # @start locale config
-      en: Project History
-      # @end locale config
-    url: /projecthistory.html
-
-  - titles:
-      # @start locale config
       en: Team
       # @end locale config
     url: /team.html
+  
+  - titles:
+      # @start locale config
+      en: Project History
+      # @end locale config
+    url: /projecthistory.html
 
   - titles:
       # @start locale config
