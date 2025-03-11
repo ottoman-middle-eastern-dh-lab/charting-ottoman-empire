@@ -1,43 +1,44 @@
 <footer class="footer py-4 js-page-footer">
-  <div class="main">
+  <div class="main d-flex justify-content-between align-items-center">
 
-    {%- assign _site_author = site.author -%}
-    {%- if _site_author.type == 'organization' -%}
-      {%- assign _site_author_itemtype = 'http://schema.org/Organization' -%}
-    {%- else -%}
-      {%- assign _site_author_itemtype = 'http://schema.org/Person' -%}
-    {%- endif -%}
-
-    <div itemscope itemtype="{{ _site_author_itemtype }}">
-      <meta itemprop="name" content="{{ _site_author.name }}">
-      {%- assign _site_author_url = _site_author.url | default: '/'-%}
-      {%- include snippets/get-nav-url.html path=_site_author_url -%}
-      {%- assign _site_author_url = __return -%}
-      <meta itemprop="url" content="{{ _site_author_url }}">
-      {%- if _site_author.bio -%}
-        <meta itemprop="description" content="{{ _site_author.bio }}">
-      {%- endif -%}
-      <div class="footer__author-links">
-        {%- include author-links.html author=_site_author -%}
-      </div>
+    <div class="footer-logos">
+      <img src="/assets/image/logo/cestalogo.png" alt="Cesta Logo" class="footer-logo cesta-logo">
+      <img src="/assets/image/logo/stanford.png" alt="Stanford Logo" class="footer-logo">
     </div>
 
-    {%- include snippets/get-locale-string.html key='COPYRIGHT_DATES' -%}
-    {%- assign _locale_copyright_dates = __return -%}
+    <div class="footer-content">
+      {%- assign _site_author = site.author -%}
+      {%- if _site_author.type == 'organization' -%}
+        {%- assign _site_author_itemtype = 'http://schema.org/Organization' -%}
+      {%- else -%}
+        {%- assign _site_author_itemtype = 'http://schema.org/Person' -%}
+      {%- endif -%}
 
-    <div class="site-info mt-2">
-      <div>
-        {%- include snippets/get-locale-string.html key='COPYRIGHT_DATES' -%}
-        {%- assign _locale_copyright_dates = __return -%}
-        © {{ site.title }} {{ _locale_copyright_dates }},
-        Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
-        title="TeXt is a super customizable Jekyll theme." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
+      <div itemscope itemtype="{{ _site_author_itemtype }}">
+        <meta itemprop="name" content="{{ _site_author.name }}">
+        {%- assign _site_author_url = _site_author.url | default: '/'-%}
+        {%- include snippets/get-nav-url.html path=_site_author_url -%}
+        {%- assign _site_author_url = __return -%}
+        <meta itemprop="url" content="{{ _site_author_url }}">
+        {%- if _site_author.bio -%}
+          <meta itemprop="description" content="{{ _site_author.bio }}">
+        {%- endif -%}
+        <div class="footer__author-links">
+          {%- include author-links.html author=_site_author -%}
+        </div>
       </div>
-      
-      <!-- Logos -->
-      <div class="footer-logos mt-3">
-        <img src="https://ottoman-middle-eastern-dh-lab.github.io/charting-ottoman-empire/assets/cestalogo.png" alt="Cesta Logo" class="footer-logo">
-        <img src="https://ottoman-middle-eastern-dh-lab.github.io/charting-ottoman-empire/assets/stanford.png" alt="Stanford Logo" class="footer-logo">
+
+      {%- include snippets/get-locale-string.html key='COPYRIGHT_DATES' -%}
+      {%- assign _locale_copyright_dates = __return -%}
+
+      <div class="site-info mt-2">
+        <div>
+          {%- include snippets/get-locale-string.html key='COPYRIGHT_DATES' -%}
+          {%- assign _locale_copyright_dates = __return -%}
+          © {{ site.title }} {{ _locale_copyright_dates }},
+          Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
+          title="TeXt is a super customizable Jekyll theme." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
+        </div>
       </div>
     </div>
   </div>
@@ -46,11 +47,26 @@
 <style>
   .footer-logos {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
   }
+
   .footer-logo {
-    max-height: 50px;
+    max-height: 80px; /* Makes the logos larger */
+  }
+
+  .cesta-logo {
+    filter: brightness(50%); /* Darkens the Cesta logo */
+  }
+
+  .footer-content {
+    flex-grow: 1;
+    text-align: right;
+  }
+
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 </style>
