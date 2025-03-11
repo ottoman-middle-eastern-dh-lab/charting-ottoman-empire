@@ -10,7 +10,7 @@ article_header:
   background_color: '#203028'
   background_image:
     gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: "/assets/images/logo/phcover.jpg"
+    src: "/assets/images/logo/methods.png"
 
 ---
 
@@ -41,6 +41,10 @@ article_header:
 
     <p>This transliteration is essential for making the texts readable, searchable, and analyzable, 
     paving the way for further processing, including data extraction and AI-assisted translation.</p>
+    <figure>
+        <img src="https://ottoman-middle-eastern-dh-lab.github.io/charting-ottoman-empire/assets/images/logo/m1.png" alt="Codex MAD9748">
+        <figcaption>Figure 1. An excerpt from Codex MAD 9726 with identified and numbered decrees, followed by transliteration.</figcaption>
+    </figure>
 
     <p>To enhance efficiency, we employ supervised machine-learning models for Named Entity 
     Recognition (NER), which help classify people, places, institutions, and key financial terms 
@@ -53,6 +57,11 @@ article_header:
     contents accessible to a broader audience. Given the complexity of Ottoman administrative 
     language, which often includes formulaic expressions, legal jargon, and archaic 
     terminology, we use a hybrid approach:</p>
+
+    <figure>
+        <img src="https://ottoman-middle-eastern-dh-lab.github.io/charting-ottoman-empire/assets/images/logo/m2.jpg" alt="Codex MAD9748">
+        <figcaption>Figure 2. Decrees 704-708 from Codex MAD 9726.</figcaption>
+    </figure>
 
     <ul>
         <li><strong>Expert human translation</strong> ensures accuracy, particularly for ambiguous or 
@@ -77,6 +86,22 @@ article_header:
         <li>Financial transactions, documenting revenues, expenses, and broader economic 
         trends.</li>
     </ul>
+    <figure>
+        <img src="https://ottoman-middle-eastern-dh-lab.github.io/charting-ottoman-empire/assets/images/logo/m3.png" alt="Codex MAD9748">
+        <figcaption>Figure 3. Conceptual map for data modeling for the Codex MAD 9726.</figcaption>
+    </figure>
+    <figure>
+        <img src="https://ottoman-middle-eastern-dh-lab.github.io/charting-ottoman-empire/assets/images/logo/m4.png" alt="Codex MAD9748">
+        <figcaption>Figure 4. Decrees 704-708 from Codex MAD 9726.</figcaption>
+    </figure>
+    <figure>
+        <img src="https://ottoman-middle-eastern-dh-lab.github.io/charting-ottoman-empire/assets/images/logo/m5.png" alt="Codex MAD9748">
+        <figcaption>Figure 5. Database for analysis of Codex MAD 9726.</figcaption>
+    </figure>
+    <figure>
+        <img src="https://ottoman-middle-eastern-dh-lab.github.io/charting-ottoman-empire/assets/images/logo/m6.png" alt="Codex MAD9748">
+        <figcaption>Figure 6. Data structuring for the Codex MAD 9726. Here, unstructured and structured data for two decrees are shown in the database.</figcaption>
+    </figure>
 
     <p>To efficiently manage this structured dataset, we are developing a relational database in SQL, 
     which allows for complex queries, cross-referencing, and visualization of financial and 
@@ -97,6 +122,11 @@ article_header:
         financial activities.</li>
     </ul>
 
+    <figure>
+        <img src="https://ottoman-middle-eastern-dh-lab.github.io/charting-ottoman-empire/assets/images/logo/m7.png" alt="Codex MAD9748">
+        <figcaption>Figure 7. This graph shows the percentage of debt or receivable settled by each method.Debt assignment indicated in red, was the most common method. However, inheritance and property transactions, often involving the deceased Pasha's family, were individually handled.</figcaption>
+    </figure>
+
     <p>This stage ensures that the data is accessible, reusable, and preserved for long-term 
     research. The database is designed to capture the hierarchical and relational nature of 
     Ottoman financial records, facilitating collaborative research and advanced analysis.</p>
@@ -113,6 +143,11 @@ article_header:
         bureaucracy.</li>
         <li>Economic flows and transaction patterns across different regions and institutions.</li>
     </ul>
+
+    <figure>
+        <img src="https://ottoman-middle-eastern-dh-lab.github.io/charting-ottoman-empire/assets/images/logo/m8.png" alt="Codex MAD9748">
+        <figcaption>Figure 8. Graph of transactions and actors: orange nodes show 'passive' (debt) transactions, purple nodes show 'active' (asset) transactions, and grey nodes represent actors. Node size reflects transaction amounts; edge colors indicate actor roles.</figcaption>
+    </figure>
 
     <p>To enhance our analysis, we also integrate the data into a Neo4j graph database, enabling 
     dynamic exploration of relationships between individuals, assets, and state transactions. This 
