@@ -1,0 +1,131 @@
+---
+layout: article
+title: Sources
+permalink: /sources
+key: sources
+cover: "/assets/images/logo/phcover.jpg"
+article_header:
+  type: overlay
+  theme: dark
+  background_color: '#203028'
+  background_image:
+    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
+    src: "/assets/images/logo/phcover.jpg"
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology</title>
+</head>
+<body>
+
+    <h1>Methodology</h1>
+
+    <p>Our project follows a structured, iterative workflow that integrates Ottoman historical research 
+    with digital humanities and data science. The initial stages—decoding, transliterating, 
+    translating, and summarizing the corpus—have laid the foundation for structuring and 
+    analyzing the data. Below, we outline the key steps of our methodology:</p>
+
+    <h2>1. Decoding and Transliteration</h2>
+
+    <p>The first step in our workflow involves deciphering and transliterating Ottoman fiscal and 
+    administrative documents, which often contain shorthand, abbreviations, and specialized 
+    terminology. Our team carefully converts the Persian-Arabic script into a Latin alphabet 
+    format, ensuring consistency across documents. This process requires deep expertise in 
+    paleography, codicology, and archival research to accurately interpret handwritten 
+    variations, marginal notes, and numerical systems.</p>
+
+    <p>This transliteration is essential for making the texts readable, searchable, and analyzable, 
+    paving the way for further processing, including data extraction and AI-assisted translation.</p>
+
+    <p>To enhance efficiency, we employ supervised machine-learning models for Named Entity 
+    Recognition (NER), which help classify people, places, institutions, and key financial terms 
+    within the documents. This automated approach supports large-scale text analysis while 
+    maintaining accuracy through human validation.</p>
+
+    <h2>2. Translation and Summarization</h2>
+
+    <p>Once the documents are transliterated, they are translated and summarized to make their 
+    contents accessible to a broader audience. Given the complexity of Ottoman administrative 
+    language, which often includes formulaic expressions, legal jargon, and archaic 
+    terminology, we use a hybrid approach:</p>
+
+    <ul>
+        <li><strong>Expert human translation</strong> ensures accuracy, particularly for ambiguous or 
+        context-dependent phrases.</li>
+        <li><strong>AI-assisted translation tools</strong> help speed up the process, with outputs carefully 
+        reviewed and refined by historians.</li>
+    </ul>
+
+    <p>Summaries are then created to highlight key information such as transaction details, financial 
+    records, and political decisions recorded in the documents. These summaries serve as 
+    structured data points, allowing us to link and analyze patterns across different sources.</p>
+
+    <h2>3. Data Modeling and Structuring</h2>
+
+    <p>After translation, the extracted data undergoes a rigorous modeling and structuring process 
+    to ensure consistency and usability. Each entry is enriched with metadata, including:</p>
+
+    <ul>
+        <li>Dates, recorded in both the Ottoman fiscal calendar and their Gregorian equivalents.</li>
+        <li>Geographical references, linked to historical maps and modern coordinates.</li>
+        <li>Named entities, such as individuals, institutions, and administrative units.</li>
+        <li>Financial transactions, documenting revenues, expenses, and broader economic 
+        trends.</li>
+    </ul>
+
+    <p>To efficiently manage this structured dataset, we are developing a relational database in SQL, 
+    which allows for complex queries, cross-referencing, and visualization of financial and 
+    administrative records. This database serves as the foundation for network analysis and 
+    statistical modeling of the Ottoman fiscal system.</p>
+
+    <h2>4. SQL Querying and Visualization</h2>
+
+    <p>Once structured, the data is stored in our relational SQL database, enabling:</p>
+
+    <ul>
+        <li>Searchable text archives for exploring transliterated and translated documents.</li>
+        <li>Interactive tables that allow users to dynamically analyze financial and administrative 
+        data.</li>
+        <li>Network visualizations, illustrating relationships between individuals, institutions, and 
+        transactions.</li>
+        <li>Interconnected datasets, linking documents based on people, locations, and 
+        financial activities.</li>
+    </ul>
+
+    <p>This stage ensures that the data is accessible, reusable, and preserved for long-term 
+    research. The database is designed to capture the hierarchical and relational nature of 
+    Ottoman financial records, facilitating collaborative research and advanced analysis.</p>
+
+    <h2>5. Network Analysis</h2>
+
+    <p>A key innovation of this project is the application of digital humanities tools to construct 
+    network visualizations that reveal the complex relationships within the Ottoman fiscal 
+    system. We transfer data from MySQL to Gephi to build interactive network graphs, which 
+    illustrate:</p>
+
+    <ul>
+        <li>Social and administrative connections among key figures in the Ottoman financial 
+        bureaucracy.</li>
+        <li>Economic flows and transaction patterns across different regions and institutions.</li>
+    </ul>
+
+    <p>To enhance our analysis, we also integrate the data into a Neo4j graph database, enabling 
+    dynamic exploration of relationships between individuals, assets, and state transactions. This 
+    approach provides a deeper understanding of the structural and functional dynamics of 
+    Ottoman financial networks.</p>
+
+    <h2>6. Interpretation and Research Applications</h2>
+
+    <p>The final step in this phase involves interpreting the structured data within broader historical 
+    contexts. Our interdisciplinary approach—combining Ottoman history, economic history, and 
+    digital humanities—enables new insights into governance, taxation, and social structures. This 
+    stage also sets the foundation for future expansions, including the integration of additional 
+    archival sources and collaborative research initiatives.</p>
+
+</body>
+</html>
