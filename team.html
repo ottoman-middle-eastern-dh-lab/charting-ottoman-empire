@@ -1,0 +1,165 @@
+---
+layout: article
+title: Team
+permalink: /team
+key: team
+cover: "/assets/images/logo/phcover.jpg"
+article_header:
+  type: overlay
+  theme: dark
+  background_color: '#203028'
+  background_image:
+    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
+    src: "/assets/images/logo/phcover.jpg"
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickable Card Grid</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Ensure this links to your compiled SCSS -->
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: repeat(1, 1fr); /* 1 column on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Card Grid</h1>
+    <p>This page displays a 3x3 grid of clickable cards.</p>
+
+    <div class="grid-container">
+
+        <!-- Card 1 -->
+        <a href="#" class="card card--clickable">
+            <div class="card__image">
+                <img src="/assets/images/cards/image1.jpg" alt="Card 1">
+            </div>
+            <div class="card__content">
+                <div class="card__header">
+                    <h4>Card 1</h4>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="#" class="card card--clickable">
+            <div class="card__image">
+                <img src="/assets/images/cards/image2.jpg" alt="Card 2">
+            </div>
+            <div class="card__content">
+                <div class="card__header">
+                    <h4>Card 2</h4>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="#" class="card card--clickable">
+            <div class="card__image">
+                <img src="/assets/images/cards/image3.jpg" alt="Card 3">
+            </div>
+            <div class="card__content">
+                <div class="card__header">
+                    <h4>Card 3</h4>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="#" class="card card--clickable">
+            <div class="card__image">
+                <img src="/assets/images/cards/image4.jpg" alt="Card 4">
+            </div>
+            <div class="card__content">
+                <div class="card__header">
+                    <h4>Card 4</h4>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="#" class="card card--clickable">
+            <div class="card__image">
+                <img src="/assets/images/cards/image5.jpg" alt="Card 5">
+            </div>
+            <div class="card__content">
+                <div class="card__header">
+                    <h4>Card 5</h4>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 6 -->
+        <a href="#" class="card card--clickable">
+            <div class="card__image">
+                <img src="/assets/images/cards/image6.jpg" alt="Card 6">
+            </div>
+            <div class="card__content">
+                <div class="card__header">
+                    <h4>Card 6</h4>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 7 -->
+        <a href="#" class="card card--clickable">
+            <div class="card__image">
+                <img src="/assets/images/cards/image7.jpg" alt="Card 7">
+            </div>
+            <div class="card__content">
+                <div class="card__header">
+                    <h4>Card 7</h4>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 8 -->
+        <a href="#" class="card card--clickable">
+            <div class="card__image">
+                <img src="/assets/images/cards/image8.jpg" alt="Card 8">
+            </div>
+            <div class="card__content">
+                <div class="card__header">
+                    <h4>Card 8</h4>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 9 -->
+        <a href="#" class="card card--clickable">
+            <div class="card__image">
+                <img src="/assets/images/cards/image9.jpg" alt="Card 9">
+            </div>
+            <div class="card__content">
+                <div class="card__header">
+                    <h4>Card 9</h4>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+</body>
+</html>
