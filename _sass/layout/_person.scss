@@ -1,0 +1,53 @@
+.person-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.person-layout__left {
+  flex: 1;
+}
+
+.person-layout__photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.person-layout__right {
+  flex: 2;
+}
+
+.person-layout__name {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.person-layout__title {
+  font-size: 1.2em;
+  color: gray;
+}
+
+.person-layout__bio {
+  margin-top: 20px;
+}
+
+.person-layout__links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.person-layout__links li {
+  margin: 5px 0;
+}
+
+.person-layout__links a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.person-layout__links a:hover {
+  text-decoration: underline;
+}
