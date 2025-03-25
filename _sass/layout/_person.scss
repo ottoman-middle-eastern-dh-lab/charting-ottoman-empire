@@ -1,53 +1,68 @@
+// Person Layout Styles
 .person-layout {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .person-layout__left {
   flex: 1;
+  padding-right: 20px;
 }
 
 .person-layout__photo {
-  width: 150px; /* Adjust to your desired size */
-  height: 150px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .person-layout__right {
   flex: 2;
 }
 
-.person-layout__name {
+.person-layout__right h1 {
   font-size: 2em;
-  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.person-layout__title {
-  font-size: 1.2em;
+.person-layout__right h2 {
+  font-size: 1.5em;
   color: gray;
+  margin-bottom: 20px;
 }
 
-.person-layout__bio {
+.person-layout__right p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.person-layout__right h3 {
   margin-top: 20px;
+  font-size: 1.3em;
 }
 
-.person-layout__links ul {
+.person-layout__right ul {
   list-style-type: none;
   padding: 0;
 }
 
-.person-layout__links li {
-  margin: 5px 0;
+.person-layout__right ul li {
+  margin-bottom: 10px;
 }
 
-.person-layout__links a {
+.person-layout__right a {
   color: #0073e6;
   text-decoration: none;
 }
 
-.person-layout__links a:hover {
+.person-layout__right a:hover {
   text-decoration: underline;
 }
