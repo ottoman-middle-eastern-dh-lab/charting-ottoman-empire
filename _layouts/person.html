@@ -1,25 +1,26 @@
 ---
 layout: page
-title: "{{ page.name }}"
-permalink: "/team/{{ page.slug }}/"
+type: article
 ---
 
-<div class="person-layout">
-  <div class="grid">
-    <!-- Left Side: Photograph -->
-    <div class="col-main">
+{%- include snippets/assign.html
+  target = site.data.variables.default.page.sharing
+  source0=layout.sharing source1=page.sharing -%}
+{%- assign _sharing = __return -%}
+
+<div class="layout--article">
+  {%- include article/top/custom.html -%}
+
+  <!-- Person's Info Section -->
+  <div class="person__content">
+    <div class="person-layout">
       <div class="person-layout__left">
         <img class="person-layout__photo" src="{{ page.photo }}" alt="{{ page.name }}'s Photo">
       </div>
-    </div>
-
-    <!-- Right Side: Name, Title, Biography, and Links -->
-    <div class="col-aside">
       <div class="person-layout__right">
         <h1>{{ page.name }}</h1>
         <h2>{{ page.title }}</h2>
         <p>{{ page.bio }}</p>
-
         <h3>Personal Links</h3>
         <ul>
           {% for link in page.links %}
@@ -29,4 +30,19 @@ permalink: "/team/{{ page.slug }}/"
       </div>
     </div>
   </div>
+
+  <!-- End Person's Info Section -->
+  {%- if _sharing -%}
+    <section class="article__sharing d-print-none">{%- include sharing.html -%}</section>
+  {%- endif -%}
+
+  <div class="d-print-none">
+    {%- include article-footer.html -%}
+    {%- include article-section-navigator.html -%}
+  </div>
+
 </div>
+
+<script>
+  {%- include scripts/article.js -%}
+</script>
