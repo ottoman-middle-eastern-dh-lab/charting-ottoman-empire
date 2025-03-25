@@ -5,29 +5,27 @@ permalink: "/team/{{ page.slug }}/"
 ---
 
 <div class="person-layout">
-  <div class="grid grid--reverse">
+  <div class="grid">
     <!-- Left Side: Photograph -->
-    <div class="col-main cell cell--auto">
+    <div class="col-main">
       <div class="person-layout__left">
-        <img class="person-layout__photo" src="{{ page.photo }}" alt="{{ page.name }}'s Photo" />
+        <img class="person-layout__photo" src="{{ page.photo }}" alt="{{ page.name }}'s Photo">
       </div>
     </div>
 
     <!-- Right Side: Name, Title, Biography, and Links -->
     <div class="col-aside">
       <div class="person-layout__right">
-        <h1 class="person-layout__name">{{ page.name }}</h1>
-        <h2 class="person-layout__title">{{ page.title }}</h2>
-        <p class="person-layout__bio">{{ page.bio }}</p>
+        <h1>{{ page.name }}</h1>
+        <h2>{{ page.title }}</h2>
+        <p>{{ page.bio }}</p>
 
-        <!-- Personal Links -->
-        <div class="person-layout__links">
-          <ul>
-            {% for link in page.links %}
-              <li><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
+        <h3>Personal Links</h3>
+        <ul>
+          {% for link in page.links %}
+            <li><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
   </div>
