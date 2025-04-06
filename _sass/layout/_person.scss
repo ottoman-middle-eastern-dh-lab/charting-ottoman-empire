@@ -1,4 +1,4 @@
-// Person Layout Styles
+/* Person Layout Styles */
 .person-layout {
   display: flex;
   margin-top: 30px;
@@ -33,7 +33,7 @@
 }
 
 .person-layout__right h2 {
-  font-size: 1.5em;
+  font-size: 1em; /* Title made smaller */
   color: gray;
   margin-bottom: 20px;
 }
@@ -65,4 +65,35 @@
 
 .person-layout__right a:hover {
   text-decoration: underline;
+}
+
+/* New Styles for Personal Links Section */
+.personal-links-container {
+  background-color: #f1f1f1; /* Light gray background */
+  padding: 20px;
+  margin-top: 30px; /* Adds space before the personal links */
+  border-radius: 8px; /* Optional: round the corners of the box */
+}
+
+.personal-links-container h3 {
+  font-size: 1.2em; /* Slightly larger font for the section title */
+  margin-bottom: 10px;
+}
+
+.personal-links {
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+}
+
+.personal-links li {
+  margin-bottom: 10px; /* Space between each link */
+}
+
+.personal-links a {
+  color: #007bff; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.personal-links a:hover {
+  text-decoration: underline; /* Underline on hover */
 }
