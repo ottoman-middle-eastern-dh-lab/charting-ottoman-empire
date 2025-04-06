@@ -18,15 +18,18 @@ type: article
         <img class="person-layout__photo" src="{{ page.photo }}" alt="{{ page.name }}'s Photo">
       </div>
       <div class="person-layout__right">
-        <h1>{{ page.name }}</h1>
-        <h2>{{ page.title }}</h2>
+        <h1 class="person-name">{{ page.name }}</h1>
+        <h2 class="person-title">{{ page.title }}</h2> <!-- Title size is smaller -->
         <p>{{ page.bio }}</p>
-        <h3>Personal Links</h3>
-        <ul>
-          {% for link in page.links %}
-            <li><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
-          {% endfor %}
-        </ul>
+        
+        <div class="personal-links-container">
+          <h3>Personal Links</h3>
+          <ul class="personal-links">
+            {% for link in page.links %}
+              <li><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -46,3 +49,4 @@ type: article
 <script>
   {%- include scripts/article.js -%}
 </script>
+
