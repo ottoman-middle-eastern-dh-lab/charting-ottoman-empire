@@ -1,7 +1,7 @@
 ---
 layout: person
-person_name: "Osman Genç"
-slug: "osman-genc"
+person_name: "Osman Onur Genç"
+slug: "osman-onur-genc"
 photo: "/assets/images/logo/osman.png"
 title: "Research Assistant"
 bio: "Osman Onur Genc is a historian specializing in the socio-economic history of the Ottoman Arab provinces, with a particular focus on the economic and financial transformations in 18th-century Ottoman Egypt. His research explores how taxation and agricultural production shaped the socio-economic landscape, as well as the impact of agricultural commercial outputs on Ottoman Egypt and Eastern Mediterranean trade during this period. He works extensively with Ottoman mukataa, ijmal, muhallefat, iltizam, and cizye registers.
