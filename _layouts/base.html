@@ -10,7 +10,7 @@ layout: none
     <style>
       :root {
         --cardinal-red: #8C1515; /* Stanford's cardinal red color */
-        --stanford-font: 'StanfordFont', sans-serif; /* Ensure you have this font available */
+        --stanford-font: 'Source Serif 4', serif; /* Updated font */
       }
       .header #stanford-band {
         background-color: var(--cardinal-red);
@@ -23,6 +23,9 @@ layout: none
         font-family: var(--stanford-font);
         font-size: 20px;
         font-weight: 400;
+      }
+      .title {
+        font-family: var(--stanford-font);
       }
     </style>
     <script>
@@ -39,6 +42,10 @@ layout: none
       </div>
     </div>
     <div class="root" data-is-touch="false">
+      <div class="title">
+        <h1>Stanford University</h1>
+        <h2>Charting the Ottoman Empire</h2>
+      </div>
       {{ content }}
     </div>
     <script>
