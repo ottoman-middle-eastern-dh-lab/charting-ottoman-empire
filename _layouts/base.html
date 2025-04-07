@@ -7,6 +7,20 @@ layout: none
   <head>
     {%- include analytics.html -%}
     {%- include head.html -%}
+    <style>
+      .header #stanford-band {
+        background-color: var(--cardinal-red);
+        height: 30px;
+        padding-left: var(--padding-left-mobile);
+      }
+      .header #stanford-band a {
+        color: white;
+        text-decoration: none;
+        font-family: var(--stanford-font);
+        font-size: 20px;
+        font-weight: 400;
+      }
+    </style>
     <script>
       {%- include scripts/utils/utils.js -%}
       {%- include scripts/lib/throttle.js -%}
@@ -15,6 +29,11 @@ layout: none
     {%- include scripts/variables.html -%}
   </head>
   <body>
+    <div class="header">
+      <div id="stanford-band">
+        <a href="#">Stanford Band</a>
+      </div>
+    </div>
     <div class="root" data-is-touch="false">
       {{ content }}
     </div>
