@@ -2,7 +2,7 @@
 layout: person
 person_name: "Ali Yaycıoğlu"
 slug: "ali-yaycioglu"
-photo: "/assets/images/logo/ali.jpg"
+photo: "/assets/images/logo/ali.png"
 title: "Project Director"
 bio: "Dr. Ali Yaycıoğlu is a historian specializing in the Ottoman Empire and Modern Turkey. His research examines various dimensions of political, economic, and legal institutions and practices, as well as the social and cultural dynamics of the Ottoman world and Turkey, from the sixteenth century to the present. He is also interested in using digital tools to understand, visualize, and conceptualize historical developments. Dr. Yaycıoğlu teaches courses on the Ottoman Empire and Modern Turkey; Empires, Markets & Networks in the Early Modern World; the Age of Revolutions; Histories of Democracy and Capitalism; and Digital Humanities.
 
