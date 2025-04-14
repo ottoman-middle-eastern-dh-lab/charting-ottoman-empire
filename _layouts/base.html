@@ -1,51 +1,67 @@
----
-layout: none
----
 <!DOCTYPE html>
 {%- include snippets/get-lang.html -%}
 <html lang="{{ __return }}">
-  <head>
-    {%- include analytics.html -%}
-    {%- include head.html -%}
-    <style>
-      :root {
-        --cardinal-red: #8C1515; /* Stanford's cardinal red color */
-        --stanford-font: 'Source Serif 4', serif; /* Updated font */
-      }
-      .header #stanford-band {
-        background-color: var(--cardinal-red);
-        height: 30px;
-        padding-left: 15rem;
-      }
-      .header #stanford-band a {
-        color: white;
-        text-decoration: none;
-        font-family: var(--stanford-font);
-        font-size: 20px;
-        font-weight: 400;
-      }
-      .title {
-        font-family: var(--stanford-font);
-      }
-    </style>
-    <script>
-      {%- include scripts/utils/utils.js -%}
-      {%- include scripts/lib/throttle.js -%}
-      {%- include scripts/lib/lazyload.js -%}
-    </script>
-    {%- include scripts/variables.html -%}
-  </head>
-  <body>
-    <div class="header">
-      <div id="stanford-band">
-        <a href="https://www.stanford.edu" target="_blank">Stanford University</a>
-      </div>
+<head>
+  {%- include analytics.html -%}
+  {%- include head.html -%}
+  <style>
+    /* Your styles */
+    :root {
+      --cardinal-red: #8C1515; /* Stanford's cardinal red color */
+      --stanford-font: 'Source Serif 4', serif; /* Updated font */
+    }
+
+    .header #stanford-band {
+      background-color: var(--cardinal-red);
+      height: 30px;
+      padding-left: 15rem;
+    }
+
+    .header #stanford-band a {
+      color: white;
+      text-decoration: none;
+      font-family: var(--stanford-font);
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .title {
+      font-family: var(--stanford-font);
+    }
+  </style>
+  <script>
+    {%- include scripts/utils/utils.js -%}
+    {%- include scripts/lib/throttle.js -%}
+    {%- include scripts/lib/lazyload.js -%}
+  </script>
+  {%- include scripts/variables.html -%}
+</head>
+<body>
+  <div class="header">
+    <div id="stanford-band">
+      <a href="https://www.stanford.edu" target="_blank">Stanford University</a>
     </div>
-      <div class="root" data-is-touch="false">
-      {{ content }}
-      </div>
-    <script>
-      {%- include scripts/common.js -%}
-    </script>
-  </body>
+  </div>
+
+  <div class="root" data-is-touch="false">
+    {{ content }}
+  </div>
+
+  <!-- Your other scripts here -->
+  {%- include scripts/common.js -%}
+
+  <!-- Popup Overlay for images -->
+  <div id="popup-overlay" style="display: none;" onclick="this.style.display='none'">
+    <img id="popup-img" style="max-width: 90%; max-height: 90%; box-shadow: 0 0 15px white; border-radius: 10px;" />
+  </div>
+
+  <script>
+    function showImagePopup(src) {
+      const popup = document.getElementById('popup-overlay');
+      const img = document.getElementById('popup-img');
+      img.src = src;
+      popup.style.display = 'flex';
+    }
+  </script>
+</body>
 </html>
