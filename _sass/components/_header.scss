@@ -1,10 +1,19 @@
+// Define the custom font at the root level
+:root {
+  --stanford-font: 'Source Sans 3', sans;
+}
+
 .header {
   background: $header-background;
+  font-family: var(--stanford-font);
+
   a {
     font-weight: map-get($base, font-weight);
     text-decoration: none !important;
+    font-family: var(--stanford-font);
     @include link-colors($header-text-color, $main-color-1);
   }
+
   .main {
     @include flexbox();
     @include media-breakpoint-down(md) {
@@ -16,6 +25,7 @@
 .header--dark {
   @extend .text--dark;
   background: rgba(#000, .15);
+
   .navigation__item--active {
     &::after {
       @include split-line(bottom, 4px, $text-color-theme-dark);
@@ -26,6 +36,7 @@
 .header--light {
   @extend .text--light;
   background: rgba(#fff, .15);
+
   .navigation__item--active {
     &::after {
       @include split-line(bottom, 4px, $text-color-theme-light);
@@ -41,19 +52,25 @@
   height: map-get($layout, header-height);
   margin-right: map-get($spacers, 3);
   white-space: nowrap;
+  font-family: var(--stanford-font);
+
   @include media-breakpoint-down(md) {
     height: auto;
     margin-right: 0;
   }
+
   & > .header__brand {
     @include flex(1);
+
     @include media-breakpoint-down(md) {
       height: map-get($layout, header-height-sm);
     }
   }
+
   & > .search-button {
     display: none;
     margin-left: map-get($spacers, 2);
+
     @include media-breakpoint-down(md) {
       @include flexbox();
     }
@@ -63,19 +80,25 @@
 .header__brand {
   @include flexbox();
   @include align-items(center);
+  font-family: var(--stanford-font);
+
   & > svg {
     width: map-get($base, font-size-h4) * 1.6;
     height: map-get($base, font-size-h4) * 1.6;
     margin-right: map-get($spacers, 3);
     vertical-align: middle;
+
     @include media-breakpoint-down(md) {
       width: map-get($base, font-size-h4) * 1.2;
       height: map-get($base, font-size-h4) * 1.2;
     }
   }
+
   & > a {
     display: inline-block;
     font-size: map-get($base, font-size-h4);
+    font-family: var(--stanford-font);
+
     @include media-breakpoint-down(md) {
       font-size: map-get($base, font-size-h4-small);
     }
@@ -84,19 +107,25 @@
 
 .navigation {
   @include overflow(auto, "x");
+
   & > ul {
     height: map-get($layout, header-height);
     padding-bottom: 0;
     margin: 0;
+    font-family: var(--stanford-font);
+
     @include media-breakpoint-down(md) {
       padding-bottom: 4px;
       margin: -4px 0 0 0;
     }
+
     @include menu(3, 2, nowrap);
     @include align-items(center);
+
     @include media-breakpoint-down(md) {
       height: auto;
     }
+
     .search-button {
       @include media-breakpoint-down(md) {
         display: none;
@@ -106,6 +135,8 @@
 }
 
 .navigation__item {
+  font-family: var(--stanford-font);
+
   &::after {
     display: block;
     margin-bottom: -4px;
@@ -113,10 +144,13 @@
     @include split-line(bottom, 4px, transparent);
   }
 }
+
 .navigation__item--active {
   a {
     @include link-colors($main-color-1, $main-color-1);
+    font-family: var(--stanford-font);
   }
+
   &::after {
     @include split-line(bottom, 4px, $main-color-1);
   }
