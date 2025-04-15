@@ -1,16 +1,16 @@
 // Define the custom font at the root level
 :root {
-  --stanford-font: 'Source Sans 3', sans-serif;
+  --stanford1-font: 'Source Sans 3', sans-serif;
 }
 
 .header {
   background: $header-background;
-  font-family: var(--stanford-font);
+  font-family: var(--stanford1-font);
 
   a {
     font-weight: map-get($base, font-weight);
     text-decoration: none !important;
-    font-family: var(--stanford-font);
+    font-family: var(--stanford1-font);
     @include link-colors($header-text-color, $main-color-1);
   }
 
@@ -52,7 +52,7 @@
   height: map-get($layout, header-height);
   margin-right: map-get($spacers, 3);
   white-space: nowrap;
-  font-family: var(--stanford-font);
+  font-family: var(--stanford1-font);
 
   @include media-breakpoint-down(md) {
     height: auto;
@@ -80,7 +80,7 @@
 .header__brand {
   @include flexbox();
   @include align-items(center);
-  font-family: var(--stanford-font);
+  font-family: var(--stanford1-font);
 
   & > svg {
     width: map-get($base, font-size-h4) * 1.6;
@@ -97,7 +97,7 @@
   & > a {
     display: inline-block;
     font-size: map-get($base, font-size-h4);
-    font-family: var(--stanford-font);
+    font-family: var(--stanford1-font);
 
     @include media-breakpoint-down(md) {
       font-size: map-get($base, font-size-h4-small);
@@ -112,7 +112,7 @@
     height: map-get($layout, header-height);
     padding-bottom: 0;
     margin: 0;
-    font-family: var(--stanford-font);
+    font-family: var(--stanford1-font);
 
     @include media-breakpoint-down(md) {
       padding-bottom: 4px;
@@ -148,7 +148,7 @@
 .navigation__item--active {
   a {
     @include link-colors($main-color-1, $main-color-1);
-    font-family: var(--stanford-font);
+    font-family: var(--stanford1-font);
   }
 
   &::after {
